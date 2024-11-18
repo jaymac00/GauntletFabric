@@ -16,13 +16,13 @@
 	"environment": "*",
 	"entrypoints": {
 		"fabric-datagen": [
-			"tech.jmacsoftware.datagen.GauntletDataGenerator"
+			"tech.jmacsoftware.gauntlet.datagen.GauntletDataGenerator"
 		],
 		"main": [
-			"tech.jmacsoftware.Gauntlet"
+          "tech.jmacsoftware.gauntlet.Gauntlet"
 		],
 		"client": [
-			"tech.jmacsoftware.GauntletClient"
+			"tech.jmacsoftware.gauntletclient.GauntletClient"
 		]
 	},
 	"mixins": [

@@ -1,12 +1,12 @@
-package tech.jmacsoftware.datagen;
+package tech.jmacsoftware.gauntlet.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 
-import tech.jmacsoftware.datagen.provider.GauntletEnglishLanguageProvider;
-import tech.jmacsoftware.datagen.provider.GauntletItemTagProvider;
-import tech.jmacsoftware.datagen.provider.GauntletModelProvider;
-import tech.jmacsoftware.datagen.provider.GauntletRecipeProvider;
+import tech.jmacsoftware.gauntlet.datagen.provider.GauntletEnglishLanguageProvider;
+import tech.jmacsoftware.gauntlet.datagen.provider.GauntletItemTagProvider;
+import tech.jmacsoftware.gauntlet.datagen.provider.GauntletModelProvider;
+import tech.jmacsoftware.gauntlet.datagen.provider.GauntletRecipeProvider;
 
 public class GauntletDataGenerator implements DataGeneratorEntrypoint {
 

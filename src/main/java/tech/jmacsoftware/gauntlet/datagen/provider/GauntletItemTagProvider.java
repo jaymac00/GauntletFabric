@@ -1,4 +1,4 @@
-package tech.jmacsoftware.datagen.provider;
+package tech.jmacsoftware.gauntlet.datagen.provider;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
@@ -7,7 +7,7 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
 
-import tech.jmacsoftware.init.CustomTools;
+import tech.jmacsoftware.gauntlet.init.CustomItems;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -21,6 +21,6 @@ public class GauntletItemTagProvider  extends FabricTagProvider<Item> {
 	protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
 
 		getOrCreateTagBuilder(ItemTags.PICKAXES)
-				.add(CustomTools.REDSTONE_PICKAXE);
+				.add(CustomItems.REDSTONE_PICKAXE);
 	}
 }

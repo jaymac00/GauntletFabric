@@ -1,4 +1,4 @@
-package tech.jmacsoftware;
+package tech.jmacsoftware.gauntletclient;
 
 import net.fabricmc.api.ClientModInitializer;
 

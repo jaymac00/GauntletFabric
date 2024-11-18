@@ -1,4 +1,4 @@
-package tech.jmacsoftware.mixin.client;
+package tech.jmacsoftware.gauntlet.mixin.client;
 
 import net.minecraft.client.MinecraftClient;
 import org.spongepowered.asm.mixin.Mixin;

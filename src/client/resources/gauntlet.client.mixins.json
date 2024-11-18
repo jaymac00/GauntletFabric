@@ -1,6 +1,6 @@
 {
 	"required": true,
-	"package": "tech.jmacsoftware.mixin.client",
+	"package": "tech.jmacsoftware.gauntlet.mixin.client",
 	"compatibilityLevel": "JAVA_21",
 	"client": [
 		"ExampleClientMixin"

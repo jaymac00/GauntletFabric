@@ -1,11 +1,11 @@
-package tech.jmacsoftware.list;
+package tech.jmacsoftware.gauntlet.list;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
 
-import tech.jmacsoftware.Gauntlet;
+import tech.jmacsoftware.gauntlet.Gauntlet;
 
 public class CustomTagList {
 

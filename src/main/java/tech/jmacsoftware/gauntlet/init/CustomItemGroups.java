@@ -1,4 +1,4 @@
-package tech.jmacsoftware.init;
+package tech.jmacsoftware.gauntlet.init;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.Item;
@@ -6,17 +6,17 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 
-import tech.jmacsoftware.Gauntlet;
-import tech.jmacsoftware.enums.CustomItemGroupsData;
+import tech.jmacsoftware.gauntlet.Gauntlet;
+import tech.jmacsoftware.gauntlet.enums.CustomItemGroupData;
 
 import java.util.Optional;
 
 public class CustomItemGroups {
 
-	public static final ItemGroup GAUNTLET_TOOLS = register(CustomItemGroupsData.GAUNTLET_TOOLS,
-			CustomTools.REDSTONE_PICKAXE);
+	public static final ItemGroup GAUNTLET_TOOLS = register(CustomItemGroupData.GAUNTLET_TOOLS,
+			CustomItems.REDSTONE_PICKAXE);
 
-	public static ItemGroup register(CustomItemGroupsData customItemGroupsData, Item icon) {
+	public static ItemGroup register(CustomItemGroupData customItemGroupsData, Item icon) {
 
 		ItemGroup itemGroup = FabricItemGroup.builder()
 				.icon(icon::getDefaultStack)

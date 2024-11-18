@@ -1,11 +1,11 @@
-package tech.jmacsoftware.enums;
+package tech.jmacsoftware.gauntlet.enums;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.registry.tag.TagKey;
 
-import tech.jmacsoftware.list.CustomTagList;
+import tech.jmacsoftware.gauntlet.list.CustomTagList;
 
 public enum CustomToolMaterials {
 

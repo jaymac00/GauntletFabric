@@ -1,4 +1,4 @@
-package tech.jmacsoftware;
+package tech.jmacsoftware.gauntlet;
 
 import net.fabricmc.api.ModInitializer;
 
@@ -6,8 +6,8 @@ import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import tech.jmacsoftware.init.CustomItemGroups;
-import tech.jmacsoftware.init.CustomTools;
+import tech.jmacsoftware.gauntlet.init.CustomItemGroups;
+import tech.jmacsoftware.gauntlet.init.CustomItems;
 
 public class Gauntlet implements ModInitializer {
 	public static final String MOD_ID = "gauntlet";
@@ -26,7 +26,7 @@ public class Gauntlet implements ModInitializer {
 		LOGGER.info("Hello Fabric world!");
 		LOGGER.info("Loading Gauntlet...");
 
-		CustomTools.load();
+		CustomItems.load();
 		CustomItemGroups.load();
 
 		LOGGER.info("Loaded!");

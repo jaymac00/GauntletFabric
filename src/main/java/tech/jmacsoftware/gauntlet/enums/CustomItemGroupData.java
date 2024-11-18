@@ -1,13 +1,13 @@
-package tech.jmacsoftware.enums;
+package tech.jmacsoftware.gauntlet.enums;
 
 import net.minecraft.item.ItemGroup;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
 
-import tech.jmacsoftware.Gauntlet;
+import tech.jmacsoftware.gauntlet.Gauntlet;
 
-public enum CustomItemGroupsData {
+public enum CustomItemGroupData {
 
 	GAUNTLET_TOOLS(createTitle("gauntlet_tools"), createRegistryKey("gauntlet_tools"));
 
@@ -15,7 +15,7 @@ public enum CustomItemGroupsData {
 
 	private RegistryKey<ItemGroup> registryKey;
 
-	CustomItemGroupsData(Text title, RegistryKey<ItemGroup> registryKey) {
+	CustomItemGroupData(Text title, RegistryKey<ItemGroup> registryKey) {
 		this.title = title;
 		this.registryKey = registryKey;
 	}

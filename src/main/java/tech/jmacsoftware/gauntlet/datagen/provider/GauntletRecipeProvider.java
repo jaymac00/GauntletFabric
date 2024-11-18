@@ -1,4 +1,4 @@
-package tech.jmacsoftware.datagen.provider;
+package tech.jmacsoftware.gauntlet.datagen.provider;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
@@ -9,7 +9,7 @@ import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.TagKey;
 
-import tech.jmacsoftware.init.CustomTools;
+import tech.jmacsoftware.gauntlet.init.CustomItems;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -25,7 +25,7 @@ public class GauntletRecipeProvider extends FabricRecipeProvider {
 		return new RecipeGenerator(wrapperLookup, recipeExporter) {
 			@Override
 			public void generate() {
-				createShaped(RecipeCategory.TOOLS, CustomTools.REDSTONE_PICKAXE)
+				createShaped(RecipeCategory.TOOLS, CustomItems.REDSTONE_PICKAXE)
 						.input('D', ConventionalItemTags.DIAMOND_GEMS)
 						.input('R', ConventionalItemTags.REDSTONE_DUSTS)
 						.input('S', ConventionalItemTags.WOODEN_RODS)
