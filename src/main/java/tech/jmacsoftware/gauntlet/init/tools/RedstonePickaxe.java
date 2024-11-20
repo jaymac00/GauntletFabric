@@ -39,47 +39,45 @@ public class RedstonePickaxe extends PickaxeItem {
 			BlockState blockState, BlockPos blockPos, LivingEntity livingEntity) {
 
 		boolean superResult = super.postMine(itemStack, world, blockState, blockPos, livingEntity);
-		if (superResult && !world.isClient
-				&& (blockState.streamTags().anyMatch(tagKey ->
-						tagKey.equals(BlockTags.BASE_STONE_OVERWORLD) || tagKey.equals(BlockTags.BASE_STONE_NETHER))
-				|| blockState.getBlock().equals(Blocks.END_STONE))) {
+		if (superResult && !world.isClient && isValidBlock(blockState)) {
 
 			boolean hasSilkTouch = livingEntity.getStackInHand(livingEntity.getActiveHand()).hasEnchantments()
-					&& livingEntity.getStackInHand(livingEntity.getActiveHand()).getEnchantments().getEnchantments()
+					&& livingEntity.getStackInHand(livingEntity.getActiveHand()).getEnchantments()
+							.getEnchantments()
 							.stream()
 							.anyMatch(enchantment -> enchantment.getKey().isPresent()
 									&& enchantment.getKey().get().equals(Enchantments.SILK_TOUCH));
 
 			switch (livingEntity.getFacing().getAxis()) {
 				case X -> {
-					breakAdjacent(world, blockState, blockPos.north(), hasSilkTouch);
-					breakAdjacent(world, blockState, blockPos.south(), hasSilkTouch);
-					breakAdjacent(world, blockState, blockPos.up(), hasSilkTouch);
-					breakAdjacent(world, blockState, blockPos.down(), hasSilkTouch);
-					breakAdjacent(world, blockState, blockPos.north().up(), hasSilkTouch);
-					breakAdjacent(world, blockState, blockPos.north().down(), hasSilkTouch);
-					breakAdjacent(world, blockState, blockPos.south().up(), hasSilkTouch);
-					breakAdjacent(world, blockState, blockPos.south().down(), hasSilkTouch);
+					breakAdjacent(world, blockPos.north(), hasSilkTouch);
+					breakAdjacent(world, blockPos.south(), hasSilkTouch);
+					breakAdjacent(world, blockPos.up(), hasSilkTouch);
+					breakAdjacent(world, blockPos.down(), hasSilkTouch);
+					breakAdjacent(world, blockPos.north().up(), hasSilkTouch);
+					breakAdjacent(world, blockPos.north().down(), hasSilkTouch);
+					breakAdjacent(world, blockPos.south().up(), hasSilkTouch);
+					breakAdjacent(world, blockPos.south().down(), hasSilkTouch);
 				}
 				case Y -> {
-					breakAdjacent(world, blockState, blockPos.north(), hasSilkTouch);
-					breakAdjacent(world, blockState, blockPos.south(), hasSilkTouch);
-					breakAdjacent(world, blockState, blockPos.east(), hasSilkTouch);
-					breakAdjacent(world, blockState, blockPos.west(), hasSilkTouch);
-					breakAdjacent(world, blockState, blockPos.north().east(), hasSilkTouch);
-					breakAdjacent(world, blockState, blockPos.north().west(), hasSilkTouch);
-					breakAdjacent(world, blockState, blockPos.south().east(), hasSilkTouch);
-					breakAdjacent(world, blockState, blockPos.south().west(), hasSilkTouch);
+					breakAdjacent(world, blockPos.north(), hasSilkTouch);
+					breakAdjacent(world, blockPos.south(), hasSilkTouch);
+					breakAdjacent(world, blockPos.east(), hasSilkTouch);
+					breakAdjacent(world, blockPos.west(), hasSilkTouch);
+					breakAdjacent(world, blockPos.north().east(), hasSilkTouch);
+					breakAdjacent(world, blockPos.north().west(), hasSilkTouch);
+					breakAdjacent(world, blockPos.south().east(), hasSilkTouch);
+					breakAdjacent(world, blockPos.south().west(), hasSilkTouch);
 				}
 				case Z -> {
-					breakAdjacent(world, blockState, blockPos.east(), hasSilkTouch);
-					breakAdjacent(world, blockState, blockPos.west(), hasSilkTouch);
-					breakAdjacent(world, blockState, blockPos.up(), hasSilkTouch);
-					breakAdjacent(world, blockState, blockPos.down(), hasSilkTouch);
-					breakAdjacent(world, blockState, blockPos.east().up(), hasSilkTouch);
-					breakAdjacent(world, blockState, blockPos.east().down(), hasSilkTouch);
-					breakAdjacent(world, blockState, blockPos.west().up(), hasSilkTouch);
-					breakAdjacent(world, blockState, blockPos.west().down(), hasSilkTouch);
+					breakAdjacent(world, blockPos.east(), hasSilkTouch);
+					breakAdjacent(world, blockPos.west(), hasSilkTouch);
+					breakAdjacent(world, blockPos.up(), hasSilkTouch);
+					breakAdjacent(world, blockPos.down(), hasSilkTouch);
+					breakAdjacent(world, blockPos.east().up(), hasSilkTouch);
+					breakAdjacent(world, blockPos.east().down(), hasSilkTouch);
+					breakAdjacent(world, blockPos.west().up(), hasSilkTouch);
+					breakAdjacent(world, blockPos.west().down(), hasSilkTouch);
 				}
 			};
 		}
@@ -87,13 +85,19 @@ public class RedstonePickaxe extends PickaxeItem {
 		return superResult;
 	}
 
-	private void breakAdjacent(World world, BlockState originalBlockState, BlockPos newBlockPos, boolean hasSilkTouch) {
+	private boolean isValidBlock(BlockState blockState) {
 
-		if (world.getBlockState(newBlockPos).getBlock().asItem().equals(originalBlockState.getBlock().asItem())
-				&& world.breakBlock(newBlockPos, !hasSilkTouch) && hasSilkTouch) {
+		return (blockState.isIn(BlockTags.BASE_STONE_OVERWORLD)
+				|| blockState.isIn(BlockTags.BASE_STONE_NETHER)
+				|| blockState.getBlock().equals(Blocks.END_STONE));
+	}
 
-			world.spawnEntity(new ItemEntity(world, newBlockPos.getX(), newBlockPos.getY(), newBlockPos.getZ(),
-					originalBlockState.getBlock().asItem().getDefaultStack()));
+	private void breakAdjacent(World world, BlockPos blockPos, boolean hasSilkTouch) {
+
+		if (isValidBlock(world.getBlockState(blockPos)) && world.breakBlock(blockPos, !hasSilkTouch) && hasSilkTouch) {
+
+			world.spawnEntity(new ItemEntity(world, blockPos.getX(), blockPos.getY(), blockPos.getZ(),
+					world.getBlockState(blockPos).getBlock().asItem().getDefaultStack()));
 		}
 	}
 }
