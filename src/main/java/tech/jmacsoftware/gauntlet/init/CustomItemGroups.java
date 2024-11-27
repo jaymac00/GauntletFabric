@@ -13,7 +13,7 @@ import java.util.Optional;
 
 public class CustomItemGroups {
 
-	public static final ItemGroup GAUNTLET_TOOLS = register(CustomItemGroupData.GAUNTLET_TOOLS,
+	public static final ItemGroup GAUNTLET_MOD = register(CustomItemGroupData.GAUNTLET_MOD,
 			CustomItems.REDSTONE_PICKAXE);
 
 	public static ItemGroup register(CustomItemGroupData customItemGroupsData, Item icon) {

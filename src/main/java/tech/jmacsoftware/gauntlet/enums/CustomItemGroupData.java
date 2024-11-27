@@ -9,11 +9,11 @@ import tech.jmacsoftware.gauntlet.Gauntlet;
 
 public enum CustomItemGroupData {
 
-	GAUNTLET_TOOLS(createTitle("gauntlet_tools"), createRegistryKey("gauntlet_tools"));
+	GAUNTLET_MOD(createTitle("gauntlet_mod"), createRegistryKey("gauntlet_mod"));
 
-	private Text title;
+	private final Text title;
 
-	private RegistryKey<ItemGroup> registryKey;
+	private final RegistryKey<ItemGroup> registryKey;
 
 	CustomItemGroupData(Text title, RegistryKey<ItemGroup> registryKey) {
 		this.title = title;

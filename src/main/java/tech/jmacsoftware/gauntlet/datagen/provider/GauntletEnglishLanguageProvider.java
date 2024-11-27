@@ -10,6 +10,7 @@ import org.jetbrains.annotations.NotNull;
 import tech.jmacsoftware.gauntlet.Gauntlet;
 import tech.jmacsoftware.gauntlet.enums.CustomItemGroupData;
 import tech.jmacsoftware.gauntlet.init.CustomItems;
+import tech.jmacsoftware.gauntlet.init.blocks.Gravestone;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -31,8 +32,8 @@ public class GauntletEnglishLanguageProvider extends FabricLanguageProvider {
 	public void generateTranslations(RegistryWrapper.WrapperLookup wrapperLookup, TranslationBuilder translationBuilder) {
 
 		translationBuilder.add(CustomItems.REDSTONE_PICKAXE, "Redstone Pickaxe");
-		addText(translationBuilder, CustomItemGroupData.GAUNTLET_TOOLS.getTitle(), "Gauntlet Tools");
+		translationBuilder.add(CustomItems.GRAVESTONE_ITEM, "Gravestone");
+		addText(translationBuilder, CustomItemGroupData.GAUNTLET_MOD.getTitle(), "Gauntlet Mod");
+		addText(translationBuilder, Gravestone.GravestoneEntity.DEFAULT_TITLE, "Unmarked Gravestone");
 	}
-
-	public static void load() {}
 }
